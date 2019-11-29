@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="https://www.facebook.com/assets.php/en_US/fbinstant.6.1.js"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <title>Ninja</title>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            margin: auto;
+            z-index: 0;
+            padding: 0;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        var preloadedInterstitial;
+        var resourceLoadCimplete = false;
+        var adHasLoad = false;
+        window.onload = function () {
+
+            console.log('[ window.onload] ' );
+            onStart();
+            FBInstant.initializeAsync().then(function () {
+
+                console.log('初始化广告' );
+                FBInstant.getInterstitialAdAsync("531453937632280_531476404296700").then(function (interstitial) {
+                    // Load the Ad asynchronously
+                    preloadedInterstitial = interstitial;
+                    return preloadedInterstitial.loadAsync();
+                }).then(function () {
+                    if(resourceLoadCimplete){
+                        preloadedInterstitial.showAsync();
+                    }else {
+                        adHasLoad = true;
+                    }
+
+                }).catch(function (err) {
+                    displayError('Interstitial failed to preload: ' + err.message);
+                });
+
+
+                // 初始化
+                console.log('[ FBInstant  initializeAsync] ' );
+                // Preload images
+                var IMAGES = ['./assets/bot.png', './assets/continuebtn.png', './assets/cut.png', './assets/deadbot.png', './assets/desktoptext.png', './assets/explosion.png', './assets/gameovertext.png', './assets/heart.png', './assets/homebtn.png', './assets/indicator.png', './assets/laser.png', './assets/laser2.png', './assets/levellaser.png', './assets/logo.png', './assets/lvl1.png', './assets/mobiletext.png', './assets/newgamebtn.png', './assets/nextbtn.png', './assets/nextleveltext.png', './assets/ray.png', './assets/ray2.png', './assets/retrybtn.png', './assets/rocket.png', './assets/smoke.png', './assets/soundbtn.png', './assets/spikes.png', './assets/star.png', './assets/survivalbtn.png']
+                for (var i = 0; i < IMAGES.length; i++) {
+                    var assetName = IMAGES[i];
+                    var image = new Image();
+                    image.src = assetName;
+                    var progress = ((i + 1) / IMAGES.length) * 100;
+                    FBInstant.setLoadingProgress(progress);
+                }
+
+               resourceLoadCimplete = true;
+                if(adHasLoad){
+                    preloadedInterstitial.showAsync();
+                }
+
+                FBInstant.startGameAsync().then(function () {
+                    window.idAsyncInit = function () {
+                        // use an id.net event to wait until after init
+                        ID.Event.subscribe('id.init', function () {
+                            // use jquery to call methods on clicks
+                            console.log('from')
+                            ID.getLoginStatus(idCallback)
+                            ID.Protection.isBlacklisted(function (blacklisted) {
+                                //blacklisted = true
+                                oMain.blackListState(blacklisted);
+                                console.log('[BLACKLIST] : ' + blacklisted);
+                            });
+                            ID.Protection.isSponsor(function (sponsor) {
+                                //sponsor = true
+                                oMain.sponsorStatus(sponsor);
+                                console.log('[SPONSOR] : ' + sponsor);
+                            });
+
+                            //oMain.LoadData()
+                        });
+                        // using an optional callback to capture data on the client
+                        var userName;
+                        var idCallback = function (response) {
+                            if (response) { // That means that the server processed the response
+                                console.log(response);
+                                console.log(response.status);
+                                console.log('Working');
+                                console.log('response.status ' + response.status);
+                                if (response.status === 'ok') {
+                                    userName = response.authResponse.details.nickname;
+                                    oMain.getUserName(userName, true);
+                                } else if (response.status === 'not_linked') {
+                                    ID.login(idCallback);
+                                }
+                            }
+                        }
+                        // init the JS interface
+                        ID.init({
+                            appId: '5acf67e3bbddbd9fb27846cf'
+                        });
+                    };
+
+                    onStart();
+                    /**************************************************************/
+                });
+            });
+        };
+
+        function onStart() {
+            // This is called when the user has tapped Play
+            // Information from the SDK can now be accessed
+            console.log('[function  onstart] ' );
+
+            window["GD_OPTIONS"] = {
+                "onEvent": function (event) {
+                    switch (event.name) {
+                        case "SDK_GAME_START":
+                            window.focus();
+                            game.sound.mute = false;
+                            break;
+                        case "SDK_GAME_PAUSE":
+                            game.sound.mute = true;
+                            break;
+                    }
+                },
+            };
+
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://html5.api.gamedistribution.com/main.min.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'gamedistribution-jssdk'));
+            (function () {
+
+                game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
+
+                game.state.add("boot", boot);
+                game.state.add("preload", preload);
+                game.state.add("menu", menu);
+                game.state.add("action", action);
+                game.state.add("survival", survival);
+
+                game.state.start("boot");
+
+            })();
+
+
+            $('#photo').attr('src', FBInstant.player.getPhoto());
+            $('#player-name').html(FBInstant.player.getName());
+            $('#player-id').html(FBInstant.player.getID());
+            $('#context-type').html(FBInstant.context.getType());
+            $('#info-section').show();
+
+
+        }
+
+    </script>
+
+
+    <!--<script type="text/javascript">-->
+        <!--$(document).ready(new function () {-->
+<!--//            onStart;-->
+
+        <!--});-->
+
+
+    <!--</script>-->
+</head>
+<body>
+</body>
+</html>
