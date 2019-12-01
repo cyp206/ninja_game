@@ -1,189 +1,163 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <script src="https://www.facebook.com/assets.php/en_US/fbinstant.6.1.js"></script>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <title>Ninja</title>
-    <script type="text/javascript" src="js/phaser.min.js"></script>
-    <script type="text/javascript" src="js/code.js"></script>
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0024)http://www.nearsnet.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        canvas {
-            width: 100%;
-            margin: auto;
-            z-index: 0;
-            padding: 0;
-            margin: auto;
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-    </style>
+    <!--<title>宁波邻家网络科技有限公司 官方网站-国内领先的二维码云服务提供商</title>-->
 
+    <meta name="generator" content="WordPress 3.4.2"> <!-- leave this for stats please -->
+    <meta name="keywords" content="喜洋洋网络科技有限公司">
+    <meta name="description"
+          content="喜洋洋网络科技有限公司">
+    <link rel="stylesheet" href="./www.nearsnet.com_files/style.css" type="text/css" media="screen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="expires" content="Wednesday 19 March 2015 11:52 GMT">
+    <meta content="target-densitydpi=device-dpi,width=1200,user-scalable=0" name="viewport">
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.nearsnet.com/?feed=rss2">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="http://www.nearsnet.com/?feed=rss">
+    <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.nearsnet.com/?feed=atom">
+    <link rel="pingback" href="http://www.nearsnet.com/xmlrpc.php">
+    <link rel="shortcut icon" href="http://nearsnet.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./www.nearsnet.com_files/newStyle.css">
+    <script src="./www.nearsnet.com_files/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="./www.nearsnet.com_files/linkgaia.js" type="text/javascript"></script>
+    <link rel="archives" title="2013 年九月" href="http://www.nearsnet.com/?m=201309">
+    <link rel="archives" title="2013 年五月" href="http://www.nearsnet.com/?m=201305">
+    <link rel="archives" title="2013 年四月" href="http://www.nearsnet.com/?m=201304">
+    <link rel="archives" title="2013 年三月" href="http://www.nearsnet.com/?m=201303">
+    <link rel="archives" title="2013 年一月" href="http://www.nearsnet.com/?m=201301">
+    <link rel="archives" title="2012 年九月" href="http://www.nearsnet.com/?m=201209">
+    <link rel="archives" title="2012 年七月" href="http://www.nearsnet.com/?m=201207">
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.nearsnet.com/xmlrpc.php?rsd">
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
+          href="http://www.nearsnet.com/wp-includes/wlwmanifest.xml">
+    <meta name="generator" content="WordPress 3.4.2">
+    <!-- All in one Favicon 4.3 -->
+    <!-- All in One SEO Pack 2.0.1 by Michael Torbert of Semper Fi Web Design[212,311] -->
+    <meta name="keywords" content="喜洋洋网络科技有限公司">
 
-    <script type="text/javascript">
-        var preloadedInterstitial;
-        var resourceLoadCimplete = false;
-        var adHasLoad = false;
-        window.onload = function () {
-
-            console.log('[ window.onload] ' );
-            onStart();
-            FBInstant.initializeAsync().then(function () {
-
-                console.log('初始化广告' );
-                FBInstant.getInterstitialAdAsync("531453937632280_531476404296700").then(function (interstitial) {
-                    // Load the Ad asynchronously
-                    preloadedInterstitial = interstitial;
-                    return preloadedInterstitial.loadAsync();
-                }).then(function () {
-                    if(resourceLoadCimplete){
-                        preloadedInterstitial.showAsync();
-                    }else {
-                        adHasLoad = true;
-                    }
-
-                }).catch(function (err) {
-                    displayError('Interstitial failed to preload: ' + err.message);
-                });
-
-
-                // 初始化
-                console.log('[ FBInstant  initializeAsync] ' );
-                // Preload images
-                var IMAGES = ['./assets/bot.png', './assets/continuebtn.png', './assets/cut.png', './assets/deadbot.png', './assets/desktoptext.png', './assets/explosion.png', './assets/gameovertext.png', './assets/heart.png', './assets/homebtn.png', './assets/indicator.png', './assets/laser.png', './assets/laser2.png', './assets/levellaser.png', './assets/logo.png', './assets/lvl1.png', './assets/mobiletext.png', './assets/newgamebtn.png', './assets/nextbtn.png', './assets/nextleveltext.png', './assets/ray.png', './assets/ray2.png', './assets/retrybtn.png', './assets/rocket.png', './assets/smoke.png', './assets/soundbtn.png', './assets/spikes.png', './assets/star.png', './assets/survivalbtn.png']
-                for (var i = 0; i < IMAGES.length; i++) {
-                    var assetName = IMAGES[i];
-                    var image = new Image();
-                    image.src = assetName;
-                    var progress = ((i + 1) / IMAGES.length) * 100;
-                    FBInstant.setLoadingProgress(progress);
-                }
-
-               resourceLoadCimplete = true;
-                if(adHasLoad){
-                    preloadedInterstitial.showAsync();
-                }
-
-                FBInstant.startGameAsync().then(function () {
-                    window.idAsyncInit = function () {
-                        // use an id.net event to wait until after init
-                        ID.Event.subscribe('id.init', function () {
-                            // use jquery to call methods on clicks
-                            console.log('from')
-                            ID.getLoginStatus(idCallback)
-                            ID.Protection.isBlacklisted(function (blacklisted) {
-                                //blacklisted = true
-                                oMain.blackListState(blacklisted);
-                                console.log('[BLACKLIST] : ' + blacklisted);
-                            });
-                            ID.Protection.isSponsor(function (sponsor) {
-                                //sponsor = true
-                                oMain.sponsorStatus(sponsor);
-                                console.log('[SPONSOR] : ' + sponsor);
-                            });
-
-                            //oMain.LoadData()
-                        });
-                        // using an optional callback to capture data on the client
-                        var userName;
-                        var idCallback = function (response) {
-                            if (response) { // That means that the server processed the response
-                                console.log(response);
-                                console.log(response.status);
-                                console.log('Working');
-                                console.log('response.status ' + response.status);
-                                if (response.status === 'ok') {
-                                    userName = response.authResponse.details.nickname;
-                                    oMain.getUserName(userName, true);
-                                } else if (response.status === 'not_linked') {
-                                    ID.login(idCallback);
-                                }
-                            }
-                        }
-                        // init the JS interface
-                        ID.init({
-                            appId: '5acf67e3bbddbd9fb27846cf'
-                        });
-                    };
-
-                    onStart();
-                    /**************************************************************/
-                });
-            });
-        };
-
-        function onStart() {
-            // This is called when the user has tapped Play
-            // Information from the SDK can now be accessed
-            console.log('[function  onstart] ' );
-
-            window["GD_OPTIONS"] = {
-                "onEvent": function (event) {
-                    switch (event.name) {
-                        case "SDK_GAME_START":
-                            window.focus();
-                            game.sound.mute = false;
-                            break;
-                        case "SDK_GAME_PAUSE":
-                            game.sound.mute = true;
-                            break;
-                    }
-                },
-            };
-
-
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://html5.api.gamedistribution.com/main.min.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'gamedistribution-jssdk'));
-            (function () {
-
-                game = new Phaser.Game(800, 600, Phaser.CANVAS, 'game');
-
-                game.state.add("boot", boot);
-                game.state.add("preload", preload);
-                game.state.add("menu", menu);
-                game.state.add("action", action);
-                game.state.add("survival", survival);
-
-                game.state.start("boot");
-
-            })();
-
-
-            $('#photo').attr('src', FBInstant.player.getPhoto());
-            $('#player-name').html(FBInstant.player.getName());
-            $('#player-id').html(FBInstant.player.getID());
-            $('#context-type').html(FBInstant.context.getType());
-            $('#info-section').show();
-
-
-        }
-
-    </script>
-
-
-    <!--<script type="text/javascript">-->
-        <!--$(document).ready(new function () {-->
-<!--//            onStart;-->
-
-        <!--});-->
-
-
-    <!--</script>-->
+    <link rel="canonical" href="http://www.nearsnet.com/">
+    <!-- /all in one seo pack -->
 </head>
 <body>
+<div class="content">
+    <i id="index"></i>
+    <div class="main">
+        <div class="header">
+            <div class="header_inner">
+                <a href="http://www.izoujie.co/#index">
+                    <div class="header_logo"></div>
+                </a>
+                <div class="nav">
+                    <ul>
+                        <a href="http://www.izoujie.co/#index">
+                            <li>首页</li>
+                        </a>
+                        <a href="http://www.izoujie.co/#aboutlj">
+                            <li>关于</li>
+                        </a>
+                        <a href="http://www.izoujie.co" target="_blank">
+                            <li>加入我们</li>
+                        </a>
+                        <a href="http://www.izoujie.co/#contact_us">
+                            <li>联系信息</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="cl"></div>
+            </div>
+
+        </div>
+        <div class="company_content">
+            <div class="company_desc">
+                <h1>喜洋洋网络科技有限公司</h1>
+                <p>信息传输、软件和信息技术服务业</p>
+                <p>致力于提供专业、稳定、可靠的服务</p>
+                <a href="http://www.izoujie.co" target="_blank">了解更多</a>
+            </div>
+            <i id="aboutlj"></i>
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="company_ipt">
+            <p class="about_company">关于喜洋洋</p>
+            <p>专业、高效、安全、稳定的计算机技术服务</p>
+        </div>
+        <div class="company_detail">
+            <div class="dt_left fl">
+                <div class="intro detail">
+                    <div class="icon1"></div>
+                    <dl>
+                        <dt>简介</dt>
+                        <dd>
+                            喜洋洋网络科技有限公司，主要经营计算机软、硬件的技术研发、技术转让、技术服务；公司发展迅速，我们为客户提供最好的产品、良好的技术支持、健全的售后服务
+                        </dd>
+                        <dd>
+                            计算机硬件技术的内容包括微机系统的基础知识、微处理器、存储器、指令系统、汇编语言程序设计、FO接口技术与DMA技术、中断技术、并行接口8255与人机接口技术、串行通信接口技术、定时/计数技术、模拟接口技术、MCS－51单片机原理及程序设计基础、MCS.51单片机的接口、计算机硬件系统的设计及开发实例
+                        </dd>
+                        <dd>计算机软件技术主要介绍了可信操作系统、应用程序设计语言、数据库系统、应用可移植性、软件工程、分布式计算与网格计算、Agent技术、应用系统集成、软件安全</dd>
+                    </dl>
+                </div>
+                <div class="team detail">
+                    <div class="icon2"></div>
+                    <dl>
+                        <dt>团队</dt>
+                        <dd>我们的团队规模40人左右，其中四分之三主要专注于计算机软、硬件技术的研究与开发，其余的主要专注于计算机及辅助设备的业务</dd>
+                        <dd>我们的团队有多位知名互联网公司前员工和曾独立创业的员工，并不断从各大高校汲取年轻、富有潜力的新生力量，为员工提供广阔的施展平台。</dd>
+                    </dl>
+                </div>
+                <div class="idea detail">
+                    <div class="icon3"></div>
+                    <dl>
+                        <dt>理念</dt>
+                        <dd>专业、稳定、可靠</dd>
+                        <dd>做更好的计算机技术</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="dt_right rg"></div>
+            <div class="cl"></div>
+        </div>
+    </div>
+</div>
+<div class="footcontainer">
+    <i id="contact_us"></i>
+    <div class="footer">
+        <div class="contact">联系信息</div>
+        <div class="div1 fl">
+            <div class="div1_log"></div>
+            <div class="div_p">
+                <p>电话</p>
+                <p>157-5932-9981</p>
+            </div>
+        </div>
+        <div class="div2 fl">
+            <a href="http://j.map.baidu.com/QtRAT" target="_blank">
+                <div class="div2_log"></div>
+            </a>
+            <div class="div_p">
+                <p>地址</p>
+                <p>顾高镇镇北路18号</p>
+            </div>
+        </div>
+        <div class="div3 fl">
+            <a href="mailto:mkt@nears.cn">
+                <div class="div3_log"></div>
+            </a>
+            <div class="div_p">
+                <p>邮箱</p>
+                <p>suchasel716@gmail.com</p>
+            </div>
+        </div>
+        <div class="cl"></div>
+        <div class="tcpip"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33020302000233"
+                              target="_blank"><img src="./www.nearsnet.com_files/gs.png" alt=""
+                                                   style="width: 15px;"></a>&nbsp;&nbsp; 苏ICP备12002384号-5 ©2019
+            izoujie.co 喜洋洋网络科技有限公司
+        </div>
+    </div>
+</div>
 </body>
 </html>

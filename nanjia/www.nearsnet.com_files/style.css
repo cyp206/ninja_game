@@ -1,0 +1,326 @@
+/*
+/*
+/*
+Theme Name: Nearscn
+Theme URI: http://nearsnet.com
+Description: Thirdlife Work for Nears
+Version: 1.0
+Author: <a href="http://90station">Sixer.Sun.Thirdlife</a>
+Tags: white, two columns, fixed width, light, minimal
+For the WordPress community (GPL), enjoy it guys.
+by Thirdlife - 90station.com
+*/
+
+
+/*
+*layout.css
+
+*/
+
+
+#header_wrap{ background:url(images/header_bg.gif) repeat-x; height:80px;}
+	#header{width:1000px; margin:0 auto;}
+	#logo{ float:left; position:relative; top:10px;}
+	#nav{ float:right;width: 800px;}
+	#nav li{ float:left; background:url(images/nav_line.gif) top right no-repeat; height:80px;  overflow:hidden;float:left;}
+	#nav li a{padding:0 70px;text-shadow: 1px 1px 0 #fff;font:16px/80px 'Microsoft Yahei'; display:block; margin-right:2px;}
+	#nav li a:hover{ background:url(images/nav_a_hover.gif) repeat-x; color:#000;}
+
+#banner_wrap{ background:url(images/banner_bg.gif) repeat-x; }
+	#banner{ background:url(images/banner.jpg) top center no-repeat; height:700px; overflow:hidden;}
+	#banner_wrap_in{ background:url(images/banner_in_bg.gif) repeat-x;}
+	#banner_in{ background:url(images/banner_in.jpg) top center no-repeat;height:100px;}
+	.banner_pic{ background:url(images/banner.png) no-repeat; height:600px; width:970px; margin:0 auto; position:relative; top:200px;}
+	.banner_pic p{ text-align:center;text-shadow: 1px 1px 0 #fff;font: 18px/36px 'Microsoft Yahei' ; color:#222; text-indent:30px; position:relative; top:500px;}
+
+#content{ width:1000px; margin:0 auto;}
+	#sidebar{ width:920px; margin:0 auto; margin-bottom:20px; overflow:hidden; background:url(images/sidebar_bottom_bg.gif)  center 125px no-repeat;}
+	#sidebar dl{ width:360px; height:80px;padding:10px 0px 10px 90px; float:left; margin:5px; background:url(images/icon.gif) no-repeat ;}
+	#sidebar dl dt{ font:16px/40px 'Microsoft Yahei';text-shadow: 1px 1px 0 #eee;}
+	#sidebar dl dd{ color:#555; font:12px/20px 'Microsoft Yahei';text-shadow: 1px 1px 0 #eee;}
+	#sidebar .hotsite{background:url(images/sidebar_bg.gif) no-repeat; cursor:pointer; margin-bottom:20px; position:}
+	#sidebar .hotsite:hover{background:url(images/sidebar_bg.gif) no-repeat 0 -100px;}
+	#sidebar .list1{ background:url(images/icon.gif) no-repeat 0px 14px; width:80px; height:80px; position: absolute; margin-left:-75px;}
+	#sidebar .list2{background:url(images/icon.gif) no-repeat 0px -140px; width:80px; height:80px; position: absolute; margin-left:-75px;}
+	#sidebar .list3{ background-position:15px -275px;}
+	#sidebar .list4{ background-position:15px -430px;}
+	#sidebar .list5{ background-position:15px -575px;}
+	#sidebar .list6{ background-position:15px -730px;}
+	
+	
+
+/*#footer_wrap{ background: #45494e url(images/footer_bg.gif) repeat-x; height:200px;font-family: 'Microsoft Yahei' ;}
+	#footer{ width:920px; margin:0 auto; color:#CECECE; line-height:30px; padding-top:10px;}
+	
+	#footer a{ color:#CECECE;}
+	#footer a:hover{ color:#999;}
+	#footer li a{ display:block; line-height:14px;font-size:14px;font-family:Microsoft SimSong;font-size:12px;}
+	#footer .copyright{ line-height:24px;}
+	#footer_share{float:left;}
+	#footer_share h2{font-family:Microsoft YaHei;font-weight:bold;}
+		.share1{background:url(images/foot_icon_v5.png) no-repeat 0 -50px;width:32px;height:32px;overflow:hidden;float:left;}
+		.share2{background:url(images/foot_icon_v5.png) no-repeat 0 -100px;width:32px;height:32px;overflow:hidden;float:left;margin-left:20px;}
+		.share3{background:url(images/foot_icon_v5.png) no-repeat 0 -150px;width:32px;height:32px;overflow:hidden;float:left;margin-left:20px;}
+		.share4{background:url(images/foot_icon_v5.png) no-repeat 0 -200px;width:32px;height:32px;overflow:hidden;float:left;margin-left:20px;}
+	#footer_menu{float:left;margin-left:40px;margin-left:100px;}
+	.fl{float:left}
+	#fr{margin-left:150px;}
+	pre{font-size:12px;}
+	#footer_menu h3,#fr h3{font-weight:bold;color:white;padding-bottom:5px;}
+	#footer_menu li,#fr li{height:1.5em;line-height:1.5em;}*/
+	
+	
+	
+	
+	/*
+	*global.css
+	*/
+	html, body { height: 100%; margin: 0; padding: 0; width: 100%; }
+
+body { padding: 0; margin: 0; font-size: 12px; font-family: "lucida grande",tahoma,verdana,arial,sans-serif;}
+
+a { color: #222; text-decoration: none; }
+
+a:hover { color: #56a4ea; }
+
+ul, li, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, hr, img, div, label, span, p{ margin: 0; padding: 0; }
+
+h1, h2, h3, h4, h5, h6 ,h7 ,h8 ,h9 { font-weight: normal;  font-family:arial;}
+
+input { font-size: 12px; }
+
+ul, li { list-style: none outside none; }
+
+h4 { font-size: 14px; }
+
+h5 { font-size: 13px; }
+
+h6 { font-size: 12px; }
+
+img { border: 0 none; }
+
+input { font-family: Arial, Helvetica, sans-serif; }
+
+.air { clear: both; height: 10px; overflow: hidden; }
+
+.clear { clear: both; height: 0; overflow: hidden; }
+
+
+/*
+*page 
+*/
+
+/*
+* archive single index
+*/
+.cl{clear:both;height:0px;}
+#container{ width:1000px; margin:0 auto;float:left}
+	#main{ background:#fff; width:860px;border-radius:5px;  padding:30px; margin:20px auto;box-shadow: 1px 1px 10px #ccc;}
+	#main h2{font: 24px/48px '宋体';font-weight:bold;}
+	#main p{font: 14px/24px '宋体' ; margin-bottom:20px; padding-bottom:10px; text-align:justify;text-indent:2em;line-height:30px;}
+	#main .cardad{ display:block; background:#ccc; padding:5px; color:#fff; margin:10px 0;}
+	#main .cardad:hover{ background:#56a4ea;}
+	#main_l,#main_r{ background:#fff; border-radius:5px; margin:20px auto;box-shadow: 1px 1px 10px #ccc;}
+	#main_l{ float:left; width:220px;margin-left:40px; line-height:30px; padding-bottom:10px;}
+	#main_l dt a,#main_l dt{background:#56a4ea; display:block; color:#fff;border-radius:5px 5px 0 0; font: 14px/40px 'Microsoft Yahei' ;text-indent:10px; margin:1px;}
+	#main_l dd a,#main_l ul li a{padding:0px 10px;font: 14px/36px 'Microsoft Yahei' ;display:block;margin:1px;border-bottom:dashed 1px #ccc;}
+	#main_l dd a:hover{background:#56a4ea; color:#fff; }
+	#main_r{ float:right; width:620px; margin-right: 40px;padding:15px 30px 30px 30px;
+}
+	#main_r h2{font: 24px/48px '宋体' ;}
+	#main_r h2{font-weight:bold;padding-bottom:5px;}
+.entry{font: 14px/24px '宋体' ; margin-bottom:20px; border-bottom:dashed 1px #ccc; padding-bottom:10px; text-align:justify;line-height:30px;}
+.entry img{width:300px;height:auto}
+.entry p{text-indent:2em;}
+.cat-item{}
+
+/*end*/
+
+
+
+
+/*
+*POST 
+*/
+#article-index {
+    -moz-border-radius: 6px 6px 6px 6px;
+    border: 1px solid #DEDFE1;
+    float: right;
+    margin: 0 0 15px 15px;
+    padding: 0 6px;
+    width: 200px;
+    line-height: 23px;
+}
+#article-index strong {
+    border-bottom: 1px dashed #DDDDDD;
+    display: block;
+    line-height: 30px;
+    padding: 0 4px;
+}
+#index-ul {
+    margin: 0;
+    padding-bottom: 10px;
+}
+#index-ul li {
+    background: none repeat scroll 0 0 transparent;
+    list-style-type: disc;
+    padding: 0;
+    margin-left: 20px;
+}
+
+/*
+*sidebar
+*/
+.widget-title{
+font-size:14px;
+font-family:Microsoft YaHei;
+padding:10px;
+border-top:1px solid gray;
+padding-top:20px;
+margin-top:30px;
+}
+.textwidget{
+font-size:14px;
+
+}
+.textwidget img{padding:10px}
+
+/*新闻和常见问题的CSS*/
+.container_nq{background-color: #ffffff;height: 240px;width: 100%;}
+.container_nq h2{font-size: 24px;
+font-weight: normal;
+color: #333;
+position: relative;
+margin-bottom: 20px;
+font-family: "Microsoft YaHei",微软雅黑,"SimSun","Microsoft JhengHei",华文细黑,STHeiti,MingLiu;}
+.container_nq .news_q{width: 1000px;margin:0 auto;}
+.container_nq .news_q .fl{margin-right: 30px;margin-top: 30px;width: 420px;margin-left: 30px;}
+.container_nq .news_q .fr{width: 420px;float: right;margin-top: 30px;}
+.container_nq .news_q .fl .time{float: right;}
+.container_nq  .news_q .content a {
+color: #666;
+_float: left;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.container_nq  .news_q .content p{
+	line-height: 30px;
+height: 30px;
+color: #666;
+font-size: 14px;
+letter-spacing: 1px;
+}
+/* 页脚 */
+/*.footer {
+width: 1000px;
+margin: 0 auto;
+}
+.footcontainer a:hover{
+    text-decoration: none;
+    color: #666666;
+}
+.footcontainer{position:relative;bottom:0px;background:#f8f8f8;}
+.footer{padding-top: 30px;padding-bottom:20px;background:#f8f8f8}
+.footer a{
+	color:#666!important;
+}
+.footer .dl_layout{
+	width: 180px;
+}
+.footer .dl_layout dt{
+	font-size: 18px;
+	font-family:Microsoft Yahei,"SimSun";
+	color: #666;
+	margin-bottom:23px;
+	margin-left:30px;  
+}
+.footer .dl_layout dd{
+	font-size: 12px;
+	margin: 7px 0px 7px 30px;
+	color:#f2f3f5;
+	font-family:Microsoft Yahei,"SimSun";
+}
+.footer dl .beian{
+	width: 413px;
+	padding-left:17px;
+	color:#666;
+}
+.footer dl .beian p{
+	margin-bottom:16px;
+	font-size: 12px; 
+	font-family:Microsoft Yahei,"SimSun";
+	color:#666;
+}
+.footer dl .beian .first{font-size: 16px;color:#666; }
+.footer dl .beian .instantmessage a{
+    margin-right: 12px;
+}
+.friendlink{
+	background:#f8f8f8;
+	padding-top:20px; 
+	padding-bottom:30px; 
+	border-top: 1px solid #dfdfdf;
+	width:1000px;
+	margin:0 auto;
+
+}
+.friendlink p{
+	margin: 5px 0 6px 18px;
+}
+.friendlink a,.friendlink span{
+	color:#999;
+	font-family: Microsoft Yahei,"SimSun";
+	line-height: 
+}
+.friendlink a:hover{
+	
+}
+.friendlink .baidurenzheng{
+	margin-left: 6px;
+	margin-top: -2px;
+}
+.instantmessage img{
+	width:28px;
+	height:auto;
+}
+.friendlink .link{
+	text-align:center;
+	margin:0 auto;
+}
+.link p{
+	text-align:left;
+	line-height:30px;
+}
+.footer .link a{color:#999!important;padding-right:20px;}
+.friendlink p a{color:#999!important;}*/
+/* 用户中心页脚 */
+.user_footer{width:100%;background:#333;padding:30px 0px;margin-top:30px;}
+.user_footer p{text-align:center;color:#666;font-family:Microsoft YaHei,"SimSun";}
+.user_footer p a{color:#666;}
+.t_wraper{
+	background:#fff;
+	border-top:1px solid #f8f8f8;
+}
+.tcpip{
+	height:50px;
+	line-height:50px;
+	width:1000px;
+	margin:0 auto;
+	color:#999;
+	padding:0 18px;
+	text-align:center
+}
+.tcpip a{
+	color:#999;
+}
+.inside_link{
+	width:1000px;
+	margin:0 auto;
+	text-align:center;
+	margin-top:20px;
+}
+.inside_link a{
+	margin:0 20px;
+	color:#333;
+}
